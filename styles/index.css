@@ -1,0 +1,591 @@
+@import url('https://fonts.googleapis.com/css2?family=Babylonica&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    color: #132122;
+}
+
+::-webkit-scrollbar {
+    width: 3px;
+}
+
+.strip {
+    width: 100%;
+    height: 60px;
+    background: #132122;
+    text-align: center;
+    color: #fff;
+    padding: 20px 0;
+    font-size: 15px;
+}
+
+.banner {
+    width: 100%;
+    height: 90vh;
+    background-image: url(https://prod.davidsbridal.com/content/dam/aem-integration/site-promos/1-17-hp/1.17_HP_NewLuxe_Desktop_1700x650.jpg);
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.box-container {
+    position: absolute;
+    right: 80px;
+    display: flex;
+    flex-direction: column;
+}
+
+.box-container img {
+    margin-bottom: 30px;
+}
+
+.box-container button {
+    margin: 10px 0;
+    padding: 20px 0;
+    background: transparent;
+    border: 1px solid #fff;
+    color: #fff;
+    cursor: pointer;
+}
+
+.box-container button:hover {
+    background: #fff;
+    color: #132122;
+}
+
+.brands {
+    width: 73%;
+    margin: 60px auto;
+}
+
+.heading {
+    font-size: 40px;
+    text-align: center;
+    margin: 40px 0;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-gap: 25px;
+    cursor: pointer;
+}
+
+.top div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.center {
+    margin: 50px auto;
+    text-align: center;
+}
+
+.center button {
+    padding: 18px 20px;
+    background: transparent;
+    border: 1px solid #132122;
+    cursor: pointer;
+    letter-spacing: 1px;
+}
+
+.center button:hover {
+    background: #132122;
+    color: #fff;
+}
+
+.grid2 img {
+    width: 100%;
+    margin-top: 50px;
+}
+
+.grid2 div {
+    text-align: center;
+}
+
+.grid2 div a {
+    text-decoration: underline;
+    text-underline-offset: 12px;
+    margin: 20px 0;
+    display: block;
+    font-size: 13px;
+    letter-spacing: 1px;
+    color: #132122;
+}
+
+.grid2 div a:hover {
+    color: #691c35;
+}
+
+.see-details {
+    text-decoration: none;
+    margin: 60px 0;
+    display: block;
+    text-align: center;
+    font-size: 13px;
+    letter-spacing: 1px;
+    color: #132122;
+}
+
+.category {
+    width: 75%;
+    margin: 10px auto;
+}
+
+.stylish {
+    font-family: 'Babylonica', cursive;
+    text-align: center;
+    font-size: 80px;
+    color: #691c35;
+    margin-bottom: -60px;
+    letter-spacing: 3px;
+}
+
+.content-div {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.content-div div {
+    background: #691c35;
+    padding: 15px 0;
+    text-align: center;
+    cursor: pointer;
+}
+
+.content-div div:hover {
+    background: #4f1326;
+}
+
+.content-div div a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+
+.wink {
+    width: 100%;
+    text-align: center;
+    margin: 60px auto -4%;
+    position: relative;
+}
+
+.wink p {
+    margin-top: -20px;
+    letter-spacing: 1px;
+    font-size: 15px;
+}
+
+.main {
+    width: 60%;
+    margin: 40px auto;
+}
+
+.row1 {
+    display: flex;
+    justify-content: space-between;
+}
+
+.col1 {
+    height: 650px;
+}
+
+.col1 img {
+    width: 450px;
+}
+
+.main div .col2 {
+    margin-top: 100px;
+    height: 400px;
+}
+
+.col2 img {
+    width: 400px;
+}
+
+.main div div {
+    display: flex;
+    flex-direction: column;
+}
+
+.main div div a {
+    text-decoration: underline;
+    text-underline-offset: 12px;
+    margin: 20px 0;
+    display: block;
+    font-size: 13px;
+    letter-spacing: 1px;
+    color: #132122;
+    text-align: right;
+}
+
+.main div div a:hover {
+    color: #4f1326;
+}
+
+.row2 {
+    margin: 150px 0;
+    display: flex;
+}
+
+.col3 {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.col3 h1 {
+    color: #4f1326;
+    font-family: 'Babylonica', cursive;
+    font-size: 60px;
+}
+
+.col4 {
+    width: 60%;
+}
+
+.color {
+    position: absolute;
+    background: #faf4ef;
+    width: 100%;
+    height: 900px;
+    top: 40%;
+    z-index: -1;
+}
+
+.best-seller {
+    margin-bottom: 60px;
+}
+
+.owl-carousel-button {
+    width: 70%;
+    margin: auto;
+}
+
+.item p {
+    font-size: 12px;
+    text-align: center;
+    margin: 20px 0;
+    letter-spacing: 1px;
+}
+
+.item h6 {
+    text-align: center;
+    font-size: 14px;
+    padding: 10px 0;
+    font-weight: 600;
+}
+
+.owl-dots {
+    display: none;
+}
+.grid2 div h4{
+    font-size: 18px;
+    font-weight: 600;
+    margin: 20px 0;
+    letter-spacing: 1px;
+}
+hr{
+    width: 80%;
+    margin: auto;
+    border: 1px solid gray;
+}
+.exclusive-partners{
+    width: 80%;
+    margin:40px auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.exclusive-partners div{
+    font-size: 14px;
+}
+.exclusive-partners div img{
+    width: 80px;
+}
+#button {
+    display: inline-block;
+    background-color: #FF9800;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    border-radius: 4px;
+    position: fixed;
+    bottom: 30px;
+    right: -30px;
+    transition: background-color .3s, 
+      opacity .5s, visibility .5s;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 1000;
+  }
+  #button::after {
+    content: "\f077";
+    font-family: FontAwesome;
+    font-weight: normal;
+    font-style: normal;
+    font-size: 2em;
+    line-height: 50px;
+    color: #fff;
+  }
+  #button:hover {
+    cursor: pointer;
+    background-color: #132122;
+  }
+  #button:active {
+    background-color: #555;
+  }
+  #button.show {
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  /* Styles for the content section */
+  
+  .content {
+    width: 77%;
+    margin: 50px auto;
+    font-family: 'Merriweather', serif;
+    font-size: 17px;
+    color: #6c767a;
+    line-height: 1.9;
+  }
+  @media (min-width: 500px) {
+    .content {
+      width: 43%;
+    }
+    #button {
+      margin: 30px;
+    }
+  }
+  .content h1 {
+    margin-bottom: -10px;
+    color: #03a9f4;
+    line-height: 1.5;
+  }
+  .content h3 {
+    font-style: italic;
+    color: #96a2a7;
+  }
+
+  #f-container {
+    width: 70%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+  }
+  #ft-left-side {
+    width: 50%;
+  }
+  #ft-right-side {
+    width: 50%;
+  }
+  #ft-left-side h3,
+  #ft-right-side h3,
+  #email-heading h3 {
+    margin-top: 30px;
+    font-size: 17px;
+    line-height: 23px;
+    color: #121212;
+    font-weight: 400;
+  }
+  #ft-left-side a {
+    display: block;
+    font-size: 14px;
+    line-height: 25px;
+    color: #1212129e;
+    margin-bottom: 10px;
+    border-bottom: 1px solid transparent;
+  }
+  #ft-left-side a:hover {
+    cursor: pointer;
+    color: #121212;
+    border: none;
+    border-bottom: 1px solid transparent;
+  }
+  #need-to-talk {
+    font-size: 16px;
+    line-height: 29px;
+    color: rgba(18, 18, 18, 0.75);
+    font-weight: 400;
+  }
+  #email-para {
+    font-size: 16px;
+    line-height: 29px;
+    color: rgba(18, 18, 18, 0.75);
+    font-weight: 700;
+  }
+  #phone-para {
+    font-size: 16px;
+    line-height: 29px;
+    color: rgba(18, 18, 18, 0.75);
+    font-weight: 700;
+  }
+  #text-msg-para {
+    font-style: italic;
+    font-size: 16px;
+    line-height: 29px;
+    color: rgba(18, 18, 18, 0.75);
+    font-weight: 400;
+  }
+  #email-heading {
+    width: 70%;
+    margin: auto;
+  }
+  #email-social-icon {
+    width: 70%;
+    margin: auto;
+    margin-bottom: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+  }
+  #email-input {
+    width: 300px;
+    height: 45px;
+    font-size: 16px;
+    padding: 0px 15px;
+  }
+  #email-input:hover {
+    outline: 1px solid #121212;
+  }
+  #all-icons .fa {
+    font-size: 20px;
+    margin-right: 20px;
+  }
+  #all-icons .fa:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+  }
+  #end-payment-bar {
+    margin-top: 50px;
+    width: 100%;
+    height: 37px;
+  }
+  #pay-icons {
+    display: flex;
+    width: 70%;
+    margin: auto;
+    justify-content: center;
+    gap: 10px;
+  }
+  #pay-icons div {
+    width: 36px;
+    height: 22px;
+    border: 1px solid #f0f0f0;
+    border-radius: 2px;
+  }
+  #pay-icons img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  #copyright {
+    text-align: center;
+    font-size: 10px;
+    line-height: 17px;
+    color: rgba(18, 18, 18, 0.75);
+    font-weight: 400;
+    margin-bottom: 30px;
+  }
+  #copyright span:hover {
+    cursor: pointer;
+    border: none;
+    border-bottom: 1px solid #121212;
+  }
+  @media all and (max-width: 1024px) {
+    #f-container {
+      width: 90%;
+    }
+    #email-heading {
+      width: 90%;
+    }
+    #email-social-icon {
+      width: 90%;
+    }
+    #pay-icons {
+      width: 90%;
+    }
+  }
+  @media all and (min-width: 427px) and (max-width: 768px) {
+    #f-container {
+      width: 90%;
+    }
+    #email-heading {
+      width: 90%;
+    }
+    #email-social-icon {
+      width: 90%;
+    }
+    #pay-icons {
+      width: 90%;
+    }
+    #need-to-talk {
+      font-size: 14px;
+    }
+    #email-para {
+      font-size: 14px;
+    }
+    #phone-para {
+      font-size: 14px;
+    }
+    #text-msg-para {
+      font-size: 14px;
+    }
+  }
+  @media all and (max-width: 426px) {
+    #f-container {
+      width: 80%;
+      flex-direction: column;
+    }
+    #email-heading {
+      width: 90%;
+    }
+    #email-social-icon {
+      width: 90%;
+    }
+    #pay-icons {
+      width: 90%;
+    }
+    #email-heading {
+      text-align: center;
+    }
+    #email-social-icon {
+      flex-direction: column;
+      margin-bottom: 40px;
+    }
+    #pay-icons {
+      flex-wrap: wrap;
+    }
+    #end-payment-bar {
+      margin-top: 40px;
+    }
+    #copyright {
+      margin-top: 40px;
+    }
+    #need-to-talk {
+      font-size: 14px;
+    }
+    #email-para {
+      font-size: 14px;
+    }
+    #phone-para {
+      font-size: 14px;
+    }
+    #text-msg-para {
+      font-size: 14px;
+    }
+  }
+  
