@@ -13,13 +13,13 @@ userRoute.get("/", async (req, res) => {
 });
 
 userRoute.post("/register", async (req, res) => {
-  const { email, pass, name, age } = req.body;
+  const { fullname, email, pass} = req.body;
   try {
     bcrypt.hash(pass, 5, async (err, hash) => {
       if (err) {
         console.log(err);
       } else {
-        const user = new UserModel({ email, pass: hash, name, age });
+        const user = new UserModel({ fullname, email, pass: hash});
         await user.save();
         res.send("Registration Successfull");
       }
@@ -44,7 +44,7 @@ userRoute.post("/login", async (req, res) => {
               exp: Math.floor(Date.now() / 1000) + 60 * 60,
               userID: user[0]._id,
             },
-            "key"
+            key
           );
           res.send({ msg: "Login Successful", token: token });
         } else {
