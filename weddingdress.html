@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/f584623432.js" crossorigin="anonymous"></script>
+
+    <!-- external css -->
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
+        integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"
+        integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+    <link rel="stylesheet" href="./styles/weddingdress.css">
+    <link rel="stylesheet" href="./styles/product-list.css">
+    <link rel="stylesheet" href="./styles/nav.css">
+    <link rel="stylesheet" href="./styles/footer.css">
+    <link rel="stylesheet" href="./styles/gosomewere.css">
+    <title>Wedding Dresses | Glam Bridal</title>
+</head>
+
+<body>
+    <!-- go to top button -->
+    <a id="button"></a>
+
+    <!-- navbar start -->
+    <div id="navbar"></div>
+
+
+    <div class="banner">
+        <img src="https://www.davidsbridal.com/media/banner/banner/12.6_BR_125_PLP_Phoenix_Desktop.jpg" alt="">
+    </div>
+
+
+    <div id="container" style="margin-top: 50px;">
+        <div id="heading">
+            <h1 style="margin: 20px -20px;">Wedding Dresses</h1>
+        </div>
+        <div id="head-filter">
+            <div id="first-side">
+                <p>Filter:</p>
+                <div id="Price">
+                    <p id="price-filter">
+                        Price <i class="fa fa-angle-down" aria-hidden="true"></i>
+                    </p>
+                    <!-- Filter Popup -->
+                    <div id="price-range">
+                        <div id="price-head">
+                            <p>The highest price is $95.00</p>
+                            <p>reset</p>
+                        </div>
+                        <div id="price-input">
+                            <p>
+                                $
+                                <input type="text" placeholder="From" class="price-input-box" />
+                            </p>
+                            <p>
+                                $
+                                <input type="text" placeholder="To" class="price-input-box" />
+                            </p>
+                        </div>
+                    </div>
+                    <!-- Filter Popup Ended-->
+                </div>
+                <div id="availibility">
+                    <p>
+                        Availability <i class="fa fa-angle-down" aria-hidden="true"></i>
+                    </p>
+                    <div id="stock-select">
+                        <div id="select">
+                            <p>0 Selected</p>
+                            <p>reset</p>
+                        </div>
+                        <div id="stock">
+                            <p><input type="checkbox" />In Stock</p>
+                            <p><input type="checkbox" />Out of Stock</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Choose Option -->
+            <div id="left-head" style="width: 100%">
+                <div id="left-f">
+                    <div>
+                        <p>Sort by:</p>
+                    </div>
+                    <select id="selector">
+                        <option value="Featured" selected>Featured</option>
+                        <option value="Bestselling">Best Selling</option>
+                        <option value="A-Z">Alphabetically, A-Z</option>
+                        <option value="Z-A">Alphabetically, Z-A</option>
+                        <option value="low-to-high">Price, low to high</option>
+                        <option value="high-to-low">Price, high to low</option>
+                        <option value="old-new">Date, old to new</option>
+                        <option value="new-old">Date, new to old</option>
+                    </select>
+                </div>
+                <div id="left-s"></div>
+            </div>
+        </div>
+        <div id="product-list">
+            <!-- Append the all Products Here -->
+        </div>
+
+        <div id="pages">
+            <a href="javascript:void(0)" class="page">1</a>
+            <a href="javascript:void(0)" class="page">2</a>
+            <a href="javascript:void(0)" class="page">3</a>
+            <a href="javascript:void(0)" class="page">...</a>
+            <a href="javascript:void(0)" class="page">23</a>
+            <span class="material-symbols-outlined"> </span>
+        </div>
+    </div>
+
+
+    <!-- footer start -->
+    <div id="footer"></div>
+</body>
+
+</html>
+
+<!-- external script -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"
+    integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer">
+    </script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"
+    integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer">
+    </script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous">
+    </script>
+
+<script src="./scripts/weddingdress.js" type="module"></script>
