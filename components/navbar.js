@@ -32,31 +32,28 @@ let navbar = () => {
 
         <div class="mx-auto my-3 d-lg-none d-sm-block d-xs-block">
             <div class="input-group">
-                <span class="input-group-text text-white"
-                    style="background-color: #132122; border:1px solid #132122;"><i
-                        class="fa-solid fa-magnifying-glass"></i></span>
-                <input type="text" class="form-control" style="color:#132122; border:1px solid #132122;">
+                <input type="text" class="form-control" placeholder="Search" style="color:#132122; border:1px solid #132122;">
                 <button class="btn text-white"
                     style="background: #132122; border:1px solid #132122;">Search</button>
             </div>
         </div>
-        <div class=" collapse navbar-collapse" id="navbarNavDropdown">
 
+        <div class=" collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav ms-auto ">
-            <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              SHOP
-            </a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="./weddingdress.html">WEDDING DRESSES</a></li>
-              <li><a class="dropdown-item" href="./all_prom_dresses.html">PROM DRESSES</a></li>
-              <li><a class="dropdown-item" href="./bridesmaid_gifts.html">BRIDESMAID GIFTS</a></li>
-              <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="#">TUXEDOS & SUITS</a></li>
-              <li><a class="dropdown-item" href="#">ACCESSORIES</a></li>
-              <li><a class="dropdown-item" href="#">SHOES</a></li>
-            </ul>
-          </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  SHOP
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="./weddingdress.html">WEDDING DRESSES</a></li>
+                  <li><a class="dropdown-item" href="./all_prom_dresses.html">PROM DRESSES</a></li>
+                  <li><a class="dropdown-item" href="./bridesmaid_gifts.html">BRIDESMAID GIFTS</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="#">TUXEDOS & SUITS</a></li>
+                  <li><a class="dropdown-item" href="#">ACCESSORIES</a></li>
+                  <li><a class="dropdown-item" href="#">SHOES</a></li>
+                </ul>
+              </li>
                 <li class="nav-item">
                     <a class="nav-link mx-2 text-uppercase" href="#">Hot Deals</a>
                 </li>
@@ -81,11 +78,12 @@ let navbar = () => {
             </div>
             <ul class="navbar-nav ms-auto ">
                 <li class="nav-item">
-                <a href="javascript:void(0)" id="login-icon">
+                <a href="../signin.html" id="login-icon">
                 <i class="fa-solid fa-user" aria-hidden="true"></i>
               </a>
                 </li>
                 <li class="nav-item">
+                <a href="../cart.html">
                 <i class="fa fa-shopping-bag" aria-hidden="true"></i>
                 <p id="total-cart-item"></p>
                 </li>

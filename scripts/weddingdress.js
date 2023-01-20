@@ -41,16 +41,6 @@ let displayCartCount = () => {
 };
 displayCartCount();
 
-// // redirect to account/login
-// let login_icon = document.getElementById("login-icon");
-// login_icon.addEventListener("click", () => {
-//   if (loginUser) {
-//     window.location.href = "account.html";
-//   } else {
-//     window.location.href = "login.html";
-//   }
-// });
-
 // display total products count
 let productsCountDisplay = (data) => {
   let left_s = document.getElementById("left-s");
