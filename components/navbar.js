@@ -24,7 +24,7 @@ let navbar = () => {
 </div>
 <nav class="navbar navbar-expand-lg bg-white sticky-top navbar-light p-3 shadow-sm">
     <div class="container">
-        <a class="navbar-brand" href="#"><img src="./images/glambridal.png" style="width: 100px;" alt=""></a>
+        <a class="navbar-brand" href="#"><img src="./images/glambridal.png" id="logo" style="width: 100px;" alt=""></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
             aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -49,8 +49,8 @@ let navbar = () => {
             </a>
             <ul class="dropdown-menu">
               <li><a class="dropdown-item" href="./weddingdress.html">WEDDING DRESSES</a></li>
-              <li><a class="dropdown-item" href="#">BRIDESMAID DRESSES</a></li>
-              <li><a class="dropdown-item" href="#">DRESSES FOR MOM</a></li>
+              <li><a class="dropdown-item" href="./all_prom_dresses.html">PROM DRESSES</a></li>
+              <li><a class="dropdown-item" href="./bridesmaid_gifts.html">BRIDESMAID GIFTS</a></li>
               <li><hr class="dropdown-divider"></li>
               <li><a class="dropdown-item" href="#">TUXEDOS & SUITS</a></li>
               <li><a class="dropdown-item" href="#">ACCESSORIES</a></li>
@@ -73,22 +73,21 @@ let navbar = () => {
 
             <div class="ms-auto d-none d-lg-block">
                 <div class="input-group">
-                    <span class=" input-group-text text-white"
-                        style="background-color: #132122; border:1px solid #132122;"><i
-                            class="fa-solid fa-magnifying-glass"></i></span>
-                    <input type="text" class="form-control" style="border:1px solid #132122">
+                    
+                    <input type="text" class="form-control" placeholder="Search" style="border:1px solid #132122">
                     <button class="btn text-white"
                         style="background: #132122; border:1px solid #132122;">Search</button>
                 </div>
             </div>
             <ul class="navbar-nav ms-auto ">
                 <li class="nav-item">
-                    <a class="nav-link mx-2 text-uppercase" href="#"><i
-                            class="fa-sharp fa-solid fa-bag-shopping"></i></a>
+                <a href="javascript:void(0)" id="login-icon">
+                <i class="fa-solid fa-user" aria-hidden="true"></i>
+              </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link mx-2 text-uppercase" href="./signin.html"><i
-                            class="fa-regular fa-user"></i></a>
+                <i class="fa fa-shopping-bag" aria-hidden="true"></i>
+                <p id="total-cart-item"></p>
                 </li>
             </ul>
         </div>
@@ -103,12 +102,13 @@ let footer = () => {
     <div id="f-container">
       <div id="ft-left-side">
         <h3>Info</h3>
-        <a>Search</a>
+        <a>Order Status</a>
+        <a>Returns & Exchanges</a>
+        <a>International Orders</a>
+        <a>Your Account</a>
         <a>Terams and Policy</a>
         <a>Refund policy</a>
-        <a>Wholesale</a>
-        <a>Wholesale Signup Form</a>
-        <a>Shipping</a>
+        <a>Find a Store</a>
       </div>
       <div id="ft-right-side">
         <h3>Contact Us!</h3>

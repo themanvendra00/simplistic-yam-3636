@@ -58,7 +58,7 @@ let productsCountDisplay = (data) => {
   let p = document.createElement("p");
   let count = 0;
   data.filter((ele) => {
-    if (ele.category == "wedding_dress") count++;
+    if (ele.category == "bridesmaid_gifts") count++;
   });
   p.innerText = `${count} products`;
   left_s.append(p);
@@ -69,11 +69,10 @@ productsCountDisplay(shopAllProducts());
 let key = document.querySelector("#selector");
 key.addEventListener("change", (e) => {
   let x = sorting(shopAllProducts(), key.value);
-  appendData(x, "wedding_dress");
+  appendData(x, "bridesmaid_gifts");
 });
 
-// Filtering Earrings product loading time
-appendData(shopAllProducts(), "wedding_dress");
+appendData(shopAllProducts(), "bridesmaid_gifts");
 
 var btn = $("#button");
 

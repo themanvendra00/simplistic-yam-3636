@@ -1,3 +1,10 @@
+import { navbar, footer } from "../components/navbar.js";
+let navbarContainer = document.getElementById("navbar");
+let footerContainer = document.getElementById("footer");
+
+navbarContainer.innerHTML = navbar();
+footerContainer.innerHTML = footer();
+
 document.querySelector("form").addEventListener("submit", signup);
 
 function signup(event) {
