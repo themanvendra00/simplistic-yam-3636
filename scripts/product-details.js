@@ -5,7 +5,7 @@ let footerContainer = document.getElementById("footer");
 navbarContainer.innerHTML = navbar();
 footerContainer.innerHTML = footer();
 
-// home redirect
+//home redirect
 let logo = document.getElementById("logo");
 logo.addEventListener("click", () => {
   window.location.href = "index.html";
@@ -45,17 +45,17 @@ let displayCartCount = () => {
 };
 displayCartCount();
 
-// redirect to account/login
+// // redirect to account/login
 let login_icon = document.getElementById("login-icon");
 login_icon.addEventListener("click", () => {
   if (loginUser) {
     window.location.href = "account.html";
   } else {
-    window.location.href = "login.html";
+    window.location.href = "./signin.html";
   }
 });
 
-// quantity counter function
+// // quantity counter function
 let dec = document.getElementById("dec");
 let inc = document.getElementById("inc");
 
@@ -223,17 +223,17 @@ document.getElementById("buy-it-now").addEventListener("click", () => {
   else alert("Please select a cart item");
 });
 
-var btn = $('#button');
+var btn = $("#button");
 
 $(window).scroll(function () {
-    if ($(window).scrollTop() > 300) {
-        btn.addClass('show');
-    } else {
-        btn.removeClass('show');
-    }
+  if ($(window).scrollTop() > 300) {
+    btn.addClass("show");
+  } else {
+    btn.removeClass("show");
+  }
 });
 
-btn.on('click', function (e) {
-    e.preventDefault();
-    $('html, body').animate({ scrollTop: 0 }, '300');
+btn.on("click", function (e) {
+  e.preventDefault();
+  $("html, body").animate({ scrollTop: 0 }, "300");
 });

@@ -41,7 +41,6 @@ let displayProductList = (allData, filterProp) => {
     // hover effect
     card.addEventListener("mouseover", (e) => {
       img.src = el.hovimage;
-     
     });
     card.addEventListener("mouseout", (e) => {
       img.src = el.image;

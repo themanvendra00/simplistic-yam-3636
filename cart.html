@@ -1,0 +1,107 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon.png">
+  <title>Cart | Glam Bridal</title>
+
+  <!-- custom css -->
+  <link rel="stylesheet" href="./styles/nav.css" />
+  <link rel="stylesheet" href="./styles/footer.css" />
+  <link rel="stylesheet" href="./styles/cart.css" />
+
+  <!-- font-awesome -->
+  <script src="https://kit.fontawesome.com/f584623432.js" crossorigin="anonymous"></script>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+
+</head>
+
+<body>
+  <div id="navbar"></div>
+  <div id="container">
+    <div id="cart-sec">
+      <h1>Your cart</h1>
+      <a href="./weddingdress.html">Continue shopping</a>
+    </div>
+    <div id="cart-table">
+      <div id="table-heading">
+        <p>PRODUCT</p>
+        <p>QUANTITY</p>
+        <p>TOTAL</p>
+      </div>
+      <hr class="hr-bar" />
+      <div id="products-list"></div>
+      <hr class="hr-bar" />
+    </div>
+    <div id="payment-option-sec">
+      <p id="subtotal-text">Subtotal <span id="subtotal"></span></p>
+      <p class="text">or 4 interest-free payments of $49.50 with</p>
+      <p id="afterpay"><span>aftrepay</span>ⓘ</p>
+      <p class="text">
+        Taxes and <a href="javascript:void(0);">shipping</a> calculated at
+        checkout
+      </p>
+      <button id="checkout">Check out</button><br />
+      <br />
+      <button id="paypal">
+        <i>
+          <span style="color: #003087">Pay</span><span style="color: #009cde">Pal</span>
+        </i></button><br />
+      <button id="g-pay"><span><img src="./images/googlelogo.png" style="width: 25px;" alt=""></span> Pay</button>
+    </div>
+    <div id="featured-sec">
+      <h3 id="featured-sec-title">Featured collection</h3>
+      <div id="card-list">
+        <div class="card">
+          <button class="heart-back">
+            <i class="fa fa-heart-o" aria-hidden="true"></i>
+          </button>
+          <img id="prod_main_img"
+            src="https://img.davidsbridal.com/is/image/DavidsBridalInc/DREAM17_3_PDP_Crop_NOV4_1920x2880?wid=510&hei=760&fit=constrain,1&resmode=sharp2&op_usm=2.5,0.3,4"
+            alt="" />
+          <p class="card-title">Galina Signature Dream Fragrance 50ml</p>
+          <p class="card-price">$49.50</p>
+        </div>
+        <div class="card">
+          <button class="heart-back">
+            <i class="fa fa-heart-o" aria-hidden="true"></i>
+          </button>
+          <img
+            src="https://img.davidsbridal.com/is/image/DavidsBridalInc/DBWINELABELBM_MWHITE_GIFT_PROD11_0005?wid=510&hei=760&fit=constrain,1&resmode=sharp2&op_usm=2.5,0.3,4"
+            alt="" />
+          <p class="card-title">Bridesmaid Peel and Stick Wine Bottle</p>
+          <p class="card-price">$1.79</p>
+        </div>
+        <div class="card">
+          <button class="heart-back">
+            <i class="fa fa-heart-o" aria-hidden="true"></i>
+          </button>
+          <img
+            src="https://img.davidsbridal.com/is/image/DavidsBridalInc/EB3166DBXTDYGLD_MMULTI_FRONT?wid=510&hei=760&fit=constrain,1&resmode=sharp2&op_usm=2.5,0.3,4"
+            alt="" />
+          <p class="card-title">Tie-Dye Resin and Metal Compact Mirror</p>
+          <p class="card-price">$2.99</p>
+        </div>
+        <div class="card">
+          <button class="heart-back">
+            <i class="fa fa-heart-o" aria-hidden="true"></i>
+          </button>
+          <img
+            src="https://img.davidsbridal.com/is/image/DavidsBridalInc/EB3211DBXTDY_MMULTI_FRONT?wid=510&hei=760&fit=constrain,1&resmode=sharp2&op_usm=2.5,0.3,4"
+            alt="" />
+          <p class="card-title">Tie-Dye Candle Tin</p>
+          <p class="card-price">$1 .79</p>
+        </div>
+      </div>
+      <button id="view-all">View All</button>
+    </div>
+  </div>
+  <div id="footer"></div>
+</body>
+<script src="./scripts/cart.js" type="module"></script>
+
+</html>

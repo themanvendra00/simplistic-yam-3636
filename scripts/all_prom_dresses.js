@@ -41,7 +41,7 @@ let displayCartCount = () => {
 };
 displayCartCount();
 
-// // redirect to account/login
+// redirect to account/login
 // let login_icon = document.getElementById("login-icon");
 // login_icon.addEventListener("click", () => {
 //   if (loginUser) {
@@ -58,7 +58,7 @@ let productsCountDisplay = (data) => {
   let p = document.createElement("p");
   let count = 0;
   data.filter((ele) => {
-    if (ele.category == "wedding_dress") count++;
+    if (ele.category == "all_prom_dresses") count++;
   });
   p.innerText = `${count} products`;
   left_s.append(p);
@@ -69,11 +69,11 @@ productsCountDisplay(shopAllProducts());
 let key = document.querySelector("#selector");
 key.addEventListener("change", (e) => {
   let x = sorting(shopAllProducts(), key.value);
-  appendData(x, "wedding_dress");
+  appendData(x, "all_prom_dresses");
 });
 
 // Filtering Earrings product loading time
-appendData(shopAllProducts(), "wedding_dress");
+appendData(shopAllProducts(), "all_prom_dresses");
 
 var btn = $("#button");
 
