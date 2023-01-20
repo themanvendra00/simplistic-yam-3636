@@ -1,34 +1,37 @@
-import { navbar, footer } from "../components/navbar.js";
-let navbarContainer = document.getElementById("navbar");
-let footerContainer = document.getElementById("footer");
-
-navbarContainer.innerHTML = navbar();
-footerContainer.innerHTML = footer();
-
-document.querySelector("form").addEventListener("submit", signin);
-
-function signin(event) {
+let loginFunction = (data, event) => {
   event.preventDefault();
   let email = document.querySelector("#email").value;
   let pass = document.querySelector("#inpass").value;
 
-  let logindetails = {
-    email,
-    pass,
-  };
+  if (email == "") {
+    alert("Please enter a email address");
+  } else if (pass == "") {
+    alert("Please enter a password");
+  } else {
+    let logindetails = {
+      email,
+      pass,
+    };
 
-  fetch("http://localhost:3000/users/login", {
-    method: "POST",
-    body: JSON.stringify(logindetails),
-    headers: {
-      "Content-Type": "application/json",
-    },
-  })
-    .then((res) => res.json())
-    .then(
-      (data) => console.log(data),
-      alert("Login Successfull"),
-      (window.location.href = "../index.html")
-    )
-    .catch((err) => console.log(err));
-}
+    fetch("http://localhost:3000/users/login", {
+      method: "POST",
+      body: JSON.stringify(logindetails),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((res) => res.json())
+      .then(
+        (data) => console.log(data),
+        alert("Login Successfull"),
+        localStorage.setItem("loginUser", JSON.stringify(logindetails)),
+        (window.location.href = "../index.html")
+      )
+      .catch((err) => console.log(err));
+  }
+};
+
+let signupData = JSON.parse(localStorage.getItem("signupData")) || [];
+document.querySelector("form").addEventListener("submit", (e) => {
+  loginFunction(signupData, e);
+});
