@@ -45,13 +45,13 @@ let navbar = () => {
                   SHOP
                 </a>
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="./weddingdress.html">WEDDING DRESSES</a></li>
-                  <li><a class="dropdown-item" href="./all_prom_dresses.html">PROM DRESSES</a></li>
-                  <li><a class="dropdown-item" href="./bridesmaid_gifts.html">BRIDESMAID GIFTS</a></li>
+                  <li><a class="dropdown-item" href="./weddingdress.html">Wedding Dresses <i class="fa-solid fa-caret-right"></i></a></li>
+                  <li><a class="dropdown-item" href="./all_prom_dresses.html">Prom Dresses <i class="fa-solid fa-caret-right"></i></a></li>
+                  <li><a class="dropdown-item" href="./bridesmaid_gifts.html">Bridemaid Gifts <i class="fa-solid fa-caret-right"></i></a></li>
                   <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="#">TUXEDOS & SUITS</a></li>
-                  <li><a class="dropdown-item" href="#">ACCESSORIES</a></li>
-                  <li><a class="dropdown-item" href="#">SHOES</a></li>
+                  <li><a class="dropdown-item" href="#">Tuxedos & Suits <i class="fa-solid fa-caret-right"></i></a></li>
+                  <li><a class="dropdown-item" href="#">Accessories <i class="fa-solid fa-caret-right"></i></a></li>
+                  <li><a class="dropdown-item" href="#">Shoes <i class="fa-solid fa-caret-right"></i></a></li>
                 </ul>
               </li>
                 <li class="nav-item">
@@ -78,7 +78,7 @@ let navbar = () => {
             </div>
             <ul class="navbar-nav ms-auto ">
                 <li class="nav-item">
-                <a href="../signin.html" id="login-icon">
+                <a href="../login.html" id="login-icon">
                 <i class="fa-solid fa-user" aria-hidden="true"></i>
               </a>
                 </li>

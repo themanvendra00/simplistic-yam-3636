@@ -1,7 +1,7 @@
 // display product List
 let displayProductList = (allData, filterProp) => {
   if (!allData) return;
-
+  allData = Object.values(allData);
   let data = allData.filter((ele) => {
     if (ele.category == filterProp) return ele;
   });
