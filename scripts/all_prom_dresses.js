@@ -1,4 +1,3 @@
-import shopAllProducts from "../components/shop-all-objects.js";
 import { navbar, footer } from "../components/navbar.js";
 import sorting from "../components/category-filter.js";
 import appendData from "../components/append.js";
@@ -41,30 +40,42 @@ let displayCartCount = () => {
 };
 displayCartCount();
 
+let url = "http://localhost:3000/products";
+let bag = [];
+
+let shopAllProducts = async () => {
+  await fetch(url)
+    .then((res) => res.json())
+    .then((result) => {
+      bag.push(result);
+      productsCountDisplay(result);
+      appendData(result, "all prom dresses");
+
+      let key = document.querySelector("#selector");
+      key.addEventListener("change", (e) => {
+        let x = sorting(result, key.value);
+        appendData(x, "all prom dresses");
+      });
+    })
+    .catch((err) => alert(err));
+};
+
 // display total products count
 let productsCountDisplay = (data) => {
   let left_s = document.getElementById("left-s");
   left_s.innerHTML = "";
   let p = document.createElement("p");
   let count = 0;
+  data = Object.values(data);
   data.filter((ele) => {
-    if (ele.category == "all_prom_dresses") count++;
+    if (ele.category == "all prom dresses") count++;
   });
   p.innerText = `${count} products`;
   left_s.append(p);
 };
 productsCountDisplay(shopAllProducts());
 
-// function display Sorting
-let key = document.querySelector("#selector");
-key.addEventListener("change", (e) => {
-  let x = sorting(shopAllProducts(), key.value);
-  appendData(x, "all_prom_dresses");
-});
-
-// Filtering Earrings product loading time
-appendData(shopAllProducts(), "all_prom_dresses");
-
+// go somewhere button functionality
 var btn = $("#button");
 
 $(window).scroll(function () {

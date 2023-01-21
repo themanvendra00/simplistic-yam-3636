@@ -1,174 +1,222 @@
-.material-symbols-outlined {
-    font-variation-settings:
-        'FILL' 0,
-        'wght' 400,
-        'GRAD' 0,
-        'opsz' 48
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-        Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-}
-
-::-webkit-scrollbar {
-    width: 0px;
-}
-
-#image {
-    margin-top: 25px;
+h1 {
+    font-size: 40px;
+    line-height: 52px;
+    font-weight: 400;
+    color: #121212;
     text-align: center;
+    margin-top: 50px;
 }
 
 #main {
-    margin-top: -10px;
-}
-
-#image>img {
-    width: 10%;
-}
-
-#content {
-    width: 35%;
+    width: 440px;
     margin: auto;
-    margin-top: 30px;
 }
 
-#content>h1 {
-    font-size: 25px;
-    line-height: 44px;
-    font-weight: 600;
-    color: rgb(51, 51, 51);
+#facebook {
+    border: 2px solid #3a86ff;
+    width: 100%;
+    height: 40px;
+    display: flex;
+    margin-top: 40px;
+    font-size: 20px;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+#facebook>div:nth-child(1) {
+    width: 40px;
+}
+
+#facebook>div:nth-child(2)>p {
+    color: #1877f8;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+#facebook>div:nth-child(2) {
+    width: 50%;
+}
+
+#facebook>div>img {
+    width: 65%;
+    margin-top: 2px;
+}
+
+#google {
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+    height: 40px;
+    display: flex;
+    margin-top: 10px;
+    font-size: 20px;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+#google>div:nth-child(1) {
+    width: 20%;
+    height: 100%;
+}
+
+#google>div:nth-child(2)>p {
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+#google>div:nth-child(2) {
+    width: 50%;
+}
+
+#google>div>img {
+    width: 40%;
+    margin-left: 15px;
+    margin-top: 2px;
+}
+
+#amazon {
+    height: 40px;
+    display: flex;
+    margin-top: 10px;
+    font-size: 20px;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: #ff9900;
+}
+
+#facebook:hover,
+#google:hover,
+#amazon:hover {
+    cursor: pointer;
+}
+
+#amazon>div:nth-child(1) {
+    width: 20%;
+    height: 100%;
+}
+
+#amazon>div:nth-child(2)>p {
+    font-size: 16px;
+    color: white;
+    margin-top: 10px;
+}
+
+#amazon>div:nth-child(2) {
+    width: 50%;
+}
+
+#amazon>div>img {
+    width: 40%;
+    margin-left: 15px;
+    margin-top: 2px;
+}
+
+form {
+    width: 440px;
+    margin: auto;
+    margin-top: 40px;
+    margin-bottom: 50px;
+}
+
+input[type="Email"] {
     margin-bottom: 20px;
 }
 
-#inpname {
-    font-size: 21px;
-    line-height: 26.25px;
-    font-weight: 500;
-    color: rgb(51, 51, 51);
-}
-
-input[type="name"] {
-    height: 40px;
-    width: 97.4%;
-    margin-top: 10px;
-    border: 2px solid rgb(211, 209, 209);
-    border-radius: 5px;
-    font-size: 16px;
-    line-height: 25.5px;
-    padding-left: 10px;
-}
-
-#inpemail {
-    margin-top: 15px;
-    font-size: 21px;
-    line-height: 26.25px;
-    font-weight: 500;
-    color: rgb(51, 51, 51);
-}
-
-input[type="email"] {
-    height: 40px;
-    width: 97.4%;
-    margin-top: 10px;
-    border: 2px solid rgb(211, 209, 209);
-    border-radius: 5px;
-    font-size: 16px;
-    line-height: 25.5px;
-    padding-left: 10px;
-}
-
-#inppass {
-    margin-top: 15px;
-    font-size: 21px;
-    line-height: 26.25px;
-    font-weight: 500;
-    color: rgb(51, 51, 51);
-}
-
-input[type="password"] {
-    height: 40px;
-    width: 97.4%;
-    margin-top: 10px;
-    border: 2px solid rgb(211, 209, 209);
-    border-radius: 5px;
-    font-size: 16px;
-    line-height: 25.5px;
-    padding-left: 10px;
-}
-
-#up {
-    text-align: center;
-}
-
-button[type="submit"] {
+input {
     width: 100%;
-    height: 44px;
-    margin-top: 30px;
-    background-color: #3183ff;
+    height: 45px;
+    font-size: 15px;
+    padding: 0px 15px;
+    border: 1px solid #7d7d7d;
+    margin-bottom: 20px;
+}
+
+input[type="password"]:hover,
+input[type="email"]:hover {
+    outline: 1px solid #7d7d7d;
+}
+
+input[type="submit"] {
+    width: 30%;
+    height: 50px;
+    background-color: #121212;
     color: white;
-    border-radius: 5px;
+    display: block;
+    margin: auto;
+    margin-top: 45px;
     border: none;
-    font-size: 17px;
-    line-height: 25.5px;
+}
+
+input[type="submit"]:hover {
+    outline: 1px solid #121212;
     cursor: pointer;
 }
 
-.btn:hover{
-    background: #005eeb;
+#forgot-pass {
+    width: 145px;
+    font-size: 14px;
+    border: none;
+    display: block;
+    border-bottom: 1px solid #121212;
 }
 
-#googlebtn {
+#create-account {
+    display: block;
+    margin: auto;
     margin-top: 20px;
-    height: 44px;
-    background-color: white;
-    border: 1px solid rgb(211, 209, 209);
-    border-radius: 5px;
+    width: 95px;
+    font-size: 14px;
+    border: none;
+    display: block;
+    border-bottom: 1px solid #121212;
+}
+
+#forgot-pass:hover,
+#create-account:hover {
+    cursor: pointer;
+}
+
+#newsletter {
     display: flex;
-    justify-content: center;
     align-items: center;
-    cursor: pointer;
-}
-
-#googlebtn>img {
-    width: 5%;
-    margin-right: 15px;
-}
-
-#google>p {
-    text-align: center;
-    font-size: 13.33333px;
-    font-weight: 400;
-    color: rgb(102, 102, 102);
-    margin-top: 10px;
-    cursor: pointer;
-}
-
-#content>p {
-    font-size: 12.8px;
-    line-height: 19.2px;
-    font-weight: 400;
-    color: rgb(51, 51, 51);
-    text-align: center;
-    margin-top: 30px;
-}
-
-#banner {
-    height: 38px;
-    width: 100%;
-    background-color: #132122;
-    margin-top: 27px;
-    color: white;
+    height: 20px;
+    margin-top: -15px;
+    color: rgba(18, 18, 18, 0.75);
     font-size: 16px;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    line-height: 29px;
+    font-weight: 400;
+    margin-top: 10px;
 }
 
-#banner>p {
-    margin-left: 10px;
+input[type="checkbox"] {
+    width: 15px;
+    height: 15px;
+    margin-top: 12px;
+    margin-left: 5px;
+}
+
+@media all and (min-width: 376px) and (max-width: 426px) {
+    #main {
+        width: 300px;
+    }
+
+    form {
+        width: 300px;
+    }
+
+    input {
+        width: 270px;
+    }
+}
+
+@media all and (max-width: 376px) {
+    #main {
+        width: 300px;
+    }
+
+    form {
+        width: 300px;
+    }
+
+    input {
+        width: 270px;
+    }
 }

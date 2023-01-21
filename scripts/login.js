@@ -11,6 +11,12 @@ logo.addEventListener("click", () => {
   window.location.href = "index.html";
 });
 
+// signup page redirect
+let create_account = document.getElementById("create-account");
+create_account.addEventListener("click", () => {
+  window.location.href = "signup.html";
+});
+
 //cart item count
 let cart_items = JSON.parse(localStorage.getItem("cart_items")) || [];
 let loginUser = JSON.parse(localStorage.getItem("loginUser")) || null;
@@ -50,45 +56,34 @@ login_icon.addEventListener("click", () => {
   }
 });
 
-
-let signupFunction = (data, event) => {
+let loginFunction = (event) => {
   event.preventDefault();
-  let fullname = document.querySelector("#fname").value;
-  let email = document.querySelector("#eMail").value;
-  let pass = document.querySelector("#Pass").value;
+  let email = document.querySelector("#email").value;
+  let pass = document.querySelector("#inpass").value;
 
-  if (fullname == "") {
-    alert("Please enter your fullname");
-  } else if (email == "") {
-    alert("Please enter your email address");
-  } else if (pass == "") {
-    alert("Please enter your password");
-  } else {
-    let registerDetails = {
-      fullname,
-      email,
-      pass,
-    };
+  let logindetails = {
+    email,
+    pass,
+  };
 
-    fetch("http://localhost:3000/users/register", {
-      method: "POST",
-      body: JSON.stringify(registerDetails),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
-      .then((res) => res.json())
-      .then(
-        (data) => console.log(data),
-        alert("Registered Successfull"),
-        (window.location.href = "../signin.html")
-      )
-      .catch((err) => {
-        console.log(err);
-      });
-  }
+  fetch("http://localhost:3000/users/login", {
+    method: "POST",
+    body: JSON.stringify(logindetails),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  })
+    .then((res) => res.json())
+    .then(
+      (data) => {console.log(data);
+      alert("Login Successfull");
+      localStorage.setItem("loginUser", JSON.stringify(logindetails));
+      (window.location.href = "../index.html");
+      })
+    .catch((err) => console.log(err));
 };
 
+let signupData = JSON.parse(localStorage.getItem("signupData")) || [];
 document.querySelector("form").addEventListener("submit", (e) => {
-  signupFunction(signupData, e);
+  loginFunction(signupData, e);
 });
