@@ -1,8 +1,9 @@
-.banner{
+.banner {
     width: 100%;
     margin: auto;
     text-align: center;
 }
+
 ::-webkit-scrollbar {
     width: 3px;
 }

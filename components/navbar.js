@@ -78,8 +78,9 @@ let navbar = () => {
             </div>
             <ul class="navbar-nav ms-auto ">
                 <li class="nav-item">
-                <a href="../login.html" id="login-icon">
+                <a href="javascript:void(0)" id="login-icon">
                 <i class="fa-solid fa-user" aria-hidden="true"></i>
+                <p id="login-status"></p>
               </a>
                 </li>
                 <li class="nav-item">

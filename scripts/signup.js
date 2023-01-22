@@ -50,42 +50,68 @@ login_icon.addEventListener("click", () => {
   }
 });
 
+// login status
+let login_status = document.getElementById("login-status");
+if (loginUser) {
+  login_status.innerHTML = "Logout";
+} else {
+  login_status.innerHTML = "Login";
+}
+
+// signup function
+let signupData = JSON.parse(localStorage.getItem("signupData")) || [];
 
 let signupFunction = (data, event) => {
   event.preventDefault();
-  let fullname = document.querySelector("#fname").value;
-  let email = document.querySelector("#eMail").value;
-  let pass = document.querySelector("#Pass").value;
 
-  if (fullname == "") {
-    alert("Please enter your fullname");
+  let fname = document.querySelector("#fname").value;
+  let lname = document.querySelector("#lname").value;
+  let email = document.querySelector("#email").value;
+  let password = document.querySelector("#password").value;
+
+  if (fname == "") {
+    alert("Please enter your first name");
+  } else if (lname == "") {
+    alert("Please enter your last name");
   } else if (email == "") {
     alert("Please enter your email address");
-  } else if (pass == "") {
+  } else if (password == "") {
     alert("Please enter your password");
   } else {
-    let registerDetails = {
-      fullname,
-      email,
-      pass,
-    };
-
-    fetch("http://localhost:3000/users/register", {
-      method: "POST",
-      body: JSON.stringify(registerDetails),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
-      .then((res) => res.json())
-      .then(
-        (data) => console.log(data),
-        alert("Registered Successfull"),
-        (window.location.href = "../signin.html")
-      )
-      .catch((err) => {
-        console.log(err);
+    let res = false;
+    if (data.length == 0) {
+      res = true;
+      let dataObj = {
+        first_name: fname,
+        last_name: lname,
+        email: email,
+        password: password,
+      };
+      data.push(dataObj);
+    } else {
+      data.forEach((element) => {
+        if (element.email == email) {
+          res = false;
+        } else {
+          res = true;
+          let dataObj = {
+            first_name: fname,
+            last_name: lname,
+            email: email,
+            password: password,
+          };
+          data.push(dataObj);
+        }
       });
+    }
+    if (res == true) {
+      alert("Signup successful!");
+      localStorage.setItem("signupData", JSON.stringify(data));
+      window.location.href = "login.html";
+    } else {
+      alert("User already exists! Login");
+      window.location.href = "login.html";
+    }
   }
 };
 

@@ -56,33 +56,43 @@ login_icon.addEventListener("click", () => {
   }
 });
 
-let loginFunction = (event) => {
+// login status
+let login_status = document.getElementById("login-status");
+if (loginUser) {
+  login_status.innerHTML = "Logout";
+} else {
+  login_status.innerHTML = "Login";
+}
+
+// login function
+let loginFunction = (data, event) => {
   event.preventDefault();
+
   let email = document.querySelector("#email").value;
-  let pass = document.querySelector("#inpass").value;
+  let password = document.querySelector("#password").value;
 
-  let logindetails = {
-    email,
-    pass,
-  };
-
-  fetch("http://localhost:3000/users/login", {
-    method: "POST",
-    body: JSON.stringify(logindetails),
-    headers: {
-      "Content-Type": "application/json",
-    },
-  })
-    .then((res) => res.json())
-    .then(
-      (data) => {console.log(data);
-      alert("Login Successfull");
-      localStorage.setItem("loginUser", JSON.stringify(logindetails));
-      (window.location.href = "../index.html");
-      })
-    .catch((err) => console.log(err));
+  if (email == "") {
+    alert("Please enter a email");
+  } else if (password == "") {
+    alert("Please enter a password");
+  } else {
+    let res = data.filter((elem) => {
+      if (elem.email == email && elem.password == password) {
+        return elem;
+      }
+    });
+    if (res.length !== 0) {
+      alert("Login successful!");
+      let loginVal = res[0];
+      localStorage.setItem("loginUser", JSON.stringify(loginVal));
+      window.location.href = "index.html";
+    } else {
+      alert("Wrong credentials!");
+    }
+  }
 };
 
+// function invoke
 let signupData = JSON.parse(localStorage.getItem("signupData")) || [];
 document.querySelector("form").addEventListener("submit", (e) => {
   loginFunction(signupData, e);

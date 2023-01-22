@@ -40,6 +40,24 @@ let displayCartCount = () => {
 };
 displayCartCount();
 
+// redirect to account/login
+let login_icon = document.getElementById("login-icon");
+login_icon.addEventListener("click", () => {
+  if (loginUser) {
+    window.location.href = "account.html";
+  } else {
+    window.location.href = "login.html";
+  }
+});
+
+// login status
+let login_status = document.getElementById("login-status");
+if (loginUser) {
+  login_status.innerHTML = "Logout";
+} else {
+  login_status.innerHTML = "Login";
+}
+
 let url = "http://localhost:3000/products";
 let bag = [];
 

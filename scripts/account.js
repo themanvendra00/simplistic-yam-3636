@@ -50,6 +50,14 @@ login_icon.addEventListener("click", () => {
   }
 });
 
+// login status
+let login_status = document.getElementById("login-status");
+if (loginUser) {
+  login_status.innerHTML = "Logout";
+} else {
+  login_status.innerHTML = "Login";
+}
+
 // logout function
 let logoutFunction = () => {
   localStorage.removeItem("loginUser");
