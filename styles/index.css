@@ -290,28 +290,32 @@ body {
 .owl-dots {
     display: none;
 }
-.grid2 div h4{
+
+.grid2 div h4 {
     font-size: 18px;
     font-weight: 600;
     margin: 20px 0;
     letter-spacing: 1px;
 }
-hr{
+
+hr {
     width: 80%;
     margin: auto;
     border: 1px solid gray;
 }
-.exclusive-partners{
+
+.exclusive-partners {
     width: 80%;
-    margin:40px auto;
+    margin: 40px auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-.exclusive-partners div{
+
+.exclusive-partners div {
     font-size: 14px;
 }
-.exclusive-partners div img{
+
+.exclusive-partners div img {
     width: 80px;
 }
-

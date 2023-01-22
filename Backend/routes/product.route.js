@@ -20,21 +20,21 @@ productRouter.post("/create", async (req, res) => {
   }
 });
 
-productRouter.patch("/:productID", async (req, res) => {
-  const ID = req.params.productID;
+// productRouter.patch("/:productID", async (req, res) => {
+//   const ID = req.params.productID;
 
-  const add_data = req.body;
-  try {
-    await ProductModel.findByIdAndUpdate({ _id: ID }, add_data);
-    res.send(`Data with id: ${ID} has Updated successfully`);
-  } catch (error) {
-    console.log("Error occurred while updating the data");
-    console.log(error);
-  }
-});
+//   const add_data = req.body;
+//   try {
+//     await ProductModel.findByIdAndUpdate({ _id: ID }, add_data);
+//     res.send(`Data with id: ${ID} has Updated successfully`);
+//   } catch (error) {
+//     console.log("Error occurred while updating the data");
+//     console.log(error);
+//   }
+// });
 
-productRouter.delete("/:bookID", async (req, res) => {
-  const ID = req.params.bookID;
+productRouter.delete("/delete/:id", async (req, res) => {
+  const ID = req.params.id;
 
   try {
     await ProductModel.findByIdAndDelete({ _id: ID });
