@@ -40,7 +40,7 @@ function displayData(data) {
     btn.addEventListener("click", function () {
       setData(data);
       deleteusers();
-      location.reload();
+      setTimeout(reload, 500);
     });
 
     divcart.append(image, title, cost, btn);
@@ -54,6 +54,10 @@ function setData(el) {
   localStorage.setItem("local_Key", JSON.stringify(productData));
   console.log(productData);
   console.log();
+}
+
+function reload() {
+  location.reload();
 }
 
 //delete product
@@ -116,5 +120,5 @@ function create(event) {
     .then((out) => console.log(out))
     .catch((err) => console.log(err));
 
-  location.reload();
+    setTimeout(reload, 500);
 }
