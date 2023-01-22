@@ -58,7 +58,7 @@ if (loginUser) {
   login_status.innerHTML = "Login";
 }
 
-let url = "http://localhost:3000/products";
+let url = "https://kind-cyan-rooster-hem.cyclic.app/products";
 let bag = [];
 
 let shopAllProducts = async () => {
