@@ -28,7 +28,7 @@ body {
 .banner {
     width: 100%;
     height: 90vh;
-    background-image: url(https://prod.davidsbridal.com/content/dam/aem-integration/site-promos/1-17-hp/1.17_HP_NewLuxe_Desktop_1700x650.jpg);
+    background-image: url("../images/home.jpg");
     background-size: cover;
     background-position: center;
     position: relative;
