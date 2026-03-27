@@ -1,97 +1,90 @@
 let navbar = () => {
-  return `<div class="superNav border-bottom py-2" style="background: #132122; color: #fff;">
+  return `<div class="superNav border-bottom py-2">
     <div class="container">
-        <div class="row">
-            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 centerOnMobile">
-                <span class="d-none d-lg-inline-block d-md-inline-block d-sm-inline-block d-xs-none me-3"><strong>join
-                        the party your way!</strong>
-                </span>
-                <span class="me-3">
-                    <strong>FIND A STORE </strong><i class="fa-solid fa-caret-right"></i>
-                </span>
-            </div>
-            <div
-                class="col-lg-6 col-md-6 col-sm-12 col-xs-12 d-none d-lg-block d-md-block-d-sm-block d-xs-none text-end">
-                <span class="me-3">
-                    <strong>DIAMOND LOYALITY</strong>
-                </span>
-                <span class="me-3">
-                    <strong>TUXEDOS & SUITS</strong>
-                </span>
-            </div>
+      <div class="row align-items-center g-2">
+        <div class="col-lg-6 col-md-6 col-sm-12 centerOnMobile">
+          <span class="d-none d-lg-inline-block me-3"><strong>JOIN THE PARTY YOUR WAY!</strong></span>
+          <a href="#" class="super-nav-link">
+            <strong>FIND A STORE</strong> <i class="fa-solid fa-caret-right"></i>
+          </a>
         </div>
+        <div class="col-lg-6 col-md-6 d-none d-md-flex justify-content-md-end gap-3">
+          <a href="#" class="super-nav-link"><strong>DIAMOND LOYALITY</strong></a>
+          <a href="#" class="super-nav-link"><strong>TUXEDOS & SUITS</strong></a>
+        </div>
+      </div>
     </div>
-</div>
-<nav class="navbar navbar-expand-lg bg-white sticky-top navbar-light p-3 shadow-sm">
+  </div>
+  <nav class="navbar navbar-expand-lg bg-white sticky-top navbar-light p-3 shadow-sm">
     <div class="container">
-        <a class="navbar-brand" href="#"><img src="./images/glambridal.png" id="logo" style="width: 100px;" alt=""></a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
-            aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+      <a class="navbar-brand" href="#"><img src="./images/glambridal.png" id="logo" alt="Glam Bridal logo"></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-        <div class="mx-auto my-3 d-lg-none d-sm-block d-xs-block">
-            <div class="input-group">
-                <input type="text" class="form-control" placeholder="Search" style="color:#132122; border:1px solid #132122;">
-                <button class="btn text-white"
-                    style="background: #132122; border:1px solid #132122;">Search</button>
-            </div>
+      <div class="mobile-search-wrap d-lg-none w-100 my-3">
+        <div class="input-group navbar-search-group">
+          <input type="text" class="form-control navbar-search-input" placeholder="Search">
+          <button class="btn navbar-search-btn text-white">Search</button>
         </div>
+      </div>
 
-        <div class=" collapse navbar-collapse" id="navbarNavDropdown">
-            <ul class="navbar-nav ms-auto ">
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  SHOP
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="./weddingdress.html">Wedding Dresses <i class="fa-solid fa-caret-right"></i></a></li>
-                  <li><a class="dropdown-item" href="./all_prom_dresses.html">Prom Dresses <i class="fa-solid fa-caret-right"></i></a></li>
-                  <li><a class="dropdown-item" href="./bridesmaid_gifts.html">Bridemaid Gifts <i class="fa-solid fa-caret-right"></i></a></li>
-                  <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="#">Tuxedos & Suits <i class="fa-solid fa-caret-right"></i></a></li>
-                  <li><a class="dropdown-item" href="#">Accessories <i class="fa-solid fa-caret-right"></i></a></li>
-                  <li><a class="dropdown-item" href="#">Shoes <i class="fa-solid fa-caret-right"></i></a></li>
-                </ul>
-              </li>
-                <li class="nav-item">
-                    <a class="nav-link mx-2 text-uppercase" href="#">Hot Deals</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link mx-2 text-uppercase" href="#">Planning</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link mx-2 text-uppercase" href="#">About</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link mx-2 text-uppercase" href="#">Book Appointment</a>
-                </li>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav main-nav-links mx-lg-auto">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              SHOP
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="./products.html?category=Wedding+Dresses">Wedding Dresses <i class="fa-solid fa-caret-right"></i></a></li>
+              <li><a class="dropdown-item" href="./products.html?category=Prom+Dresses">Prom Dresses <i class="fa-solid fa-caret-right"></i></a></li>
+              <li><a class="dropdown-item" href="./products.html?category=Bridesmaid+Gifts">Bridesmaid Gifts <i class="fa-solid fa-caret-right"></i></a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="./products.html?category=Tuxedos+%26+Suits">Tuxedos & Suits <i class="fa-solid fa-caret-right"></i></a></li>
+              <li><a class="dropdown-item" href="./products.html?category=Accessories">Accessories <i class="fa-solid fa-caret-right"></i></a></li>
+              <li><a class="dropdown-item" href="./products.html?category=Shoes">Shoes <i class="fa-solid fa-caret-right"></i></a></li>
             </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-uppercase" href="#">Hot Deals</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-uppercase" href="#">Planning</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-uppercase" href="#">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-uppercase" href="#">Book Appointment</a>
+          </li>
+        </ul>
 
-            <div class="ms-auto d-none d-lg-block">
-                <div class="input-group">
-                    
-                    <input type="text" class="form-control" placeholder="Search" style="border:1px solid #132122">
-                    <button class="btn text-white"
-                        style="background: #132122; border:1px solid #132122;">Search</button>
-                </div>
+        <div class="navbar-end-wrap ms-lg-auto">
+          <div class="desktop-search-wrap d-none d-lg-block">
+            <div class="input-group navbar-search-group">
+              <input type="text" class="form-control navbar-search-input" placeholder="Search">
+              <button class="btn navbar-search-btn text-white">Search</button>
             </div>
-            <ul class="navbar-nav ms-auto ">
-                <li class="nav-item">
-                <a href="javascript:void(0)" id="login-icon">
+          </div>
+          <ul class="navbar-nav action-icons-list">
+            <li class="nav-item">
+              <a href="javascript:void(0)" id="login-icon" class="action-icon-link">
                 <i class="fa-solid fa-user" aria-hidden="true"></i>
                 <p id="login-status"></p>
               </a>
-                </li>
-                <li class="nav-item">
-                <a href="../cart.html">
+            </li>
+            <li class="nav-item">
+              <a href="../cart.html" class="action-icon-link cart-icon-link">
                 <i class="fa fa-shopping-bag" aria-hidden="true"></i>
                 <p id="total-cart-item"></p>
-                </li>
-            </ul>
+              </a>
+            </li>
+          </ul>
         </div>
+      </div>
     </div>
-</nav>
+  </nav>
 `;
 };
 

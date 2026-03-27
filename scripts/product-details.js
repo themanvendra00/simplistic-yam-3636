@@ -14,6 +14,8 @@ logo.addEventListener("click", () => {
 //cart item count
 let cart_items = JSON.parse(localStorage.getItem("cart_items")) || [];
 let loginUser = JSON.parse(localStorage.getItem("loginUser")) || null;
+let authToken = localStorage.getItem("auth_token");
+let isLoggedIn = !!(loginUser || authToken);
 
 let displayCartCount = () => {
   let total_cart_item = document.getElementById("total-cart-item");
@@ -48,16 +50,16 @@ displayCartCount();
 // // redirect to account/login
 let login_icon = document.getElementById("login-icon");
 login_icon.addEventListener("click", () => {
-  if (loginUser) {
+  if (isLoggedIn) {
     window.location.href = "account.html";
   } else {
-    window.location.href = "./signin.html";
+    window.location.href = "login.html";
   }
 });
 
 // login status
 let login_status = document.getElementById("login-status");
-if (loginUser) {
+if (isLoggedIn) {
   login_status.innerHTML = "Logout";
 } else {
   login_status.innerHTML = "Login";

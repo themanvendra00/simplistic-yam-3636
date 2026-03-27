@@ -39,6 +39,15 @@ body {
   border-bottom: 1px solid #121212;
 }
 
+#email-display {
+  border-bottom: none !important;
+}
+
+#profile-section {
+  width: 75%;
+  margin: auto;
+}
+
 #below-table {
   width: 75%;
   margin: auto;

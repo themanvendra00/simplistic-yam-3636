@@ -1,0 +1,1 @@
+export const Base_Url = "glambridalbackend-production.up.railway.app";

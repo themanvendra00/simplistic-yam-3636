@@ -1,5 +1,5 @@
 // get function
-let url = "https://kind-cyan-rooster-hem.cyclic.app/products";
+let url = "http://localhost:3000/products";
 
 async function getData() {
   try {
@@ -109,7 +109,7 @@ function create(event) {
     availability,
   };
 
-  fetch("https://kind-cyan-rooster-hem.cyclic.app/products/create", {
+  fetch("http://localhost:3000/products/create", {
     method: "POST",
     body: JSON.stringify(obj),
     headers: {
