@@ -1,1 +1,1 @@
-export const Base_Url = "glambridalbackend-production.up.railway.app";
+export const Base_Url = "https://glambridalbackend-production.up.railway.app";
