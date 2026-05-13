@@ -1,5 +1,6 @@
 import { navbar, footer } from "../components/navbar.js";
 import { Base_Url } from "./config.js";
+import { notifyError, notifySuccess, notifyWarning } from "./app-dialogs.js";
 
 let navbarContainer = document.getElementById("navbar");
 let footerContainer = document.getElementById("footer");
@@ -133,19 +134,19 @@ signupForm?.addEventListener("submit", async (e) => {
   let password = document.querySelector("#password")?.value;
 
   if (!fname) {
-    alert("Please enter your first name");
+    await notifyWarning("Please enter your first name");
     return;
   }
   if (!lname) {
-    alert("Please enter your last name");
+    await notifyWarning("Please enter your last name");
     return;
   }
   if (!email) {
-    alert("Please enter your email address");
+    await notifyWarning("Please enter your email address");
     return;
   }
   if (!password) {
-    alert("Please enter your password");
+    await notifyWarning("Please enter your password");
     return;
   }
 
@@ -173,13 +174,13 @@ signupForm?.addEventListener("submit", async (e) => {
 
     if (!res.ok) {
       const msg = payload?.message ?? payload?.error ?? "Signup failed!";
-      alert(msg);
+      await notifyError(msg);
       return;
     }
 
     const token = extractToken(payload);
     if (!token) {
-      alert("Signup successful! Please login.");
+      await notifySuccess("Signup successful! Please login.");
       window.location.href = "login.html";
       return;
     }
@@ -194,6 +195,6 @@ signupForm?.addEventListener("submit", async (e) => {
     window.location.href = "account.html";
   } catch (err) {
     console.error(err);
-    alert("Something went wrong while signing up.");
+    await notifyError("Something went wrong while signing up.");
   }
 });

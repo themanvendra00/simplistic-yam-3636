@@ -1,5 +1,6 @@
 import { navbar, footer } from "../components/navbar.js";
 import { Base_Url } from "./config.js";
+import { confirmDialog, notifyError, notifyWarning } from "./app-dialogs.js";
 
 let navbarContainer = document.getElementById("navbar");
 let footerContainer = document.getElementById("footer");
@@ -114,9 +115,9 @@ let logoutFunction = () => {
 };
 
 let logout_btn = document.getElementById("logout");
-logout_btn?.addEventListener("click", () => {
-  let res = confirm("Are you sure?");
-  if (res) logoutFunction();
+logout_btn?.addEventListener("click", async () => {
+  const ok = await confirmDialog("Are you sure?");
+  if (ok) logoutFunction();
 });
 
 // display login user name
@@ -272,9 +273,18 @@ let displayOrders = (orders, user) => {
       const email = document.getElementById("profile-email")?.value?.trim();
       const password = document.getElementById("profile-password")?.value;
 
-      if (!firstName) return alert("First name is required.");
-      if (!lastName) return alert("Last name is required.");
-      if (!email) return alert("Email is required.");
+      if (!firstName) {
+        await notifyWarning("First name is required.");
+        return;
+      }
+      if (!lastName) {
+        await notifyWarning("Last name is required.");
+        return;
+      }
+      if (!email) {
+        await notifyWarning("Email is required.");
+        return;
+      }
 
       let body = { firstName, lastName, email };
       if (password && password.trim().length > 0) body.password = password;
@@ -315,15 +325,17 @@ let displayOrders = (orders, user) => {
       } catch (err) {
         console.error(err);
         statusEl && (statusEl.innerText = err?.message ?? "Update failed.");
-        alert(err?.message ?? "Update failed.");
+        await notifyError(err?.message ?? "Update failed.");
       }
     });
   }
 
   if (deleteBtn) {
     deleteBtn.addEventListener("click", async () => {
-      const res = confirm("Are you sure you want to delete your account?");
-      if (!res) return;
+      const ok = await confirmDialog(
+        "Are you sure you want to delete your account?"
+      );
+      if (!ok) return;
 
       try {
         statusEl && (statusEl.innerText = "Deleting account...");
@@ -351,7 +363,7 @@ let displayOrders = (orders, user) => {
         window.location.href = "login.html";
       } catch (err) {
         console.error(err);
-        alert(err?.message ?? "Delete failed.");
+        await notifyError(err?.message ?? "Delete failed.");
         statusEl && (statusEl.innerText = err?.message ?? "Delete failed.");
       }
     });

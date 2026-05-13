@@ -1,5 +1,6 @@
 import { navbar, footer } from "../components/navbar.js";
 import { Base_Url } from "./config.js";
+import { notifyError, notifySuccess, notifyWarning } from "./app-dialogs.js";
 
 const PRODUCT_CATEGORIES = [
   "Wedding Dresses",
@@ -47,7 +48,6 @@ if (logo) {
   });
 }
 
-const cartItems = JSON.parse(localStorage.getItem("cart_items")) || [];
 const loginUser = JSON.parse(localStorage.getItem("loginUser")) || null;
 const authToken = localStorage.getItem("auth_token");
 const isLoggedIn = !!(loginUser || authToken);
@@ -72,9 +72,10 @@ function displayCartCount() {
   const totalCartItem = document.getElementById("total-cart-item");
   if (!totalCartItem) return;
 
+  const stored = JSON.parse(localStorage.getItem("cart_items")) || [];
   let sumCount = 0;
-  if (loginUser && cartItems.length > 0) {
-    const elements = cartItems.filter((ele) => loginUser.email === ele.email);
+  if (loginUser && stored.length > 0) {
+    const elements = stored.filter((ele) => loginUser.email === ele.email);
     for (let i = 0; i < elements.length; i += 1) {
       const x = elements[i].cartItems || [];
       for (let j = 0; j < x.length; j += 1) {
@@ -83,6 +84,63 @@ function displayCartCount() {
     }
   }
   totalCartItem.innerText = sumCount;
+}
+
+function getProductKey(product) {
+  if (!product) return "";
+  if (product.id != null && product.id !== "") return `id:${String(product.id)}`;
+  if (product._id != null && product._id !== "")
+    return `id:${String(product._id)}`;
+  return `legacy:${product.head}|${product.image}`;
+}
+
+function addProductToCart(product) {
+  if (!product) return;
+  if (!loginUser) {
+    void notifyWarning("Login required");
+    return;
+  }
+
+  const cart_items = JSON.parse(localStorage.getItem("cart_items")) || [];
+  let userIndex = null;
+  const res = cart_items.filter((item, index) => {
+    if (item.email === loginUser.email) {
+      userIndex = index;
+      return true;
+    }
+    return false;
+  });
+
+  const newProductKey = getProductKey(product);
+  const qty = 1;
+
+  if (res.length !== 0) {
+    const cartArray = res[0].cartItems;
+    const matched = cartArray.filter((ele) => getProductKey(ele) === newProductKey);
+
+    if (matched.length !== 0) {
+      matched[0].count += qty;
+      cart_items[userIndex] = {
+        email: loginUser.email,
+        cartItems: cartArray,
+      };
+    } else {
+      cartArray.push({ ...product, count: qty });
+      cart_items[userIndex] = {
+        email: loginUser.email,
+        cartItems: cartArray,
+      };
+    }
+  } else {
+    cart_items.push({
+      email: loginUser.email,
+      cartItems: [{ ...product, count: qty }],
+    });
+  }
+
+  localStorage.setItem("cart_items", JSON.stringify(cart_items));
+  displayCartCount();
+  void notifySuccess("product added to the cart");
 }
 
 function getSortQuery(sortValue) {
@@ -195,7 +253,16 @@ function renderProducts(items) {
     price.innerText = `$${safePrice.toFixed(2)}`;
     price.setAttribute("class", "prod-price");
 
-    card.append(loveBtn, imgBox, title, price);
+    const addBtn = document.createElement("button");
+    addBtn.type = "button";
+    addBtn.setAttribute("class", "card-add-to-cart");
+    addBtn.textContent = "Add to cart";
+    addBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      addProductToCart(el);
+    });
+
+    card.append(loveBtn, imgBox, title, price, addBtn);
     products.append(card);
   });
 }
@@ -261,8 +328,7 @@ async function fetchProducts() {
     renderProductCount(0);
     renderProducts([]);
     renderPagination(0);
-    // eslint-disable-next-line no-alert
-    alert("Failed to load products.");
+    await notifyError("Failed to load products.");
     return;
   }
   let normalized = normalizeProductsResponse(result);

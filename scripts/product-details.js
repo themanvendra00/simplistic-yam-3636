@@ -1,4 +1,5 @@
 import { navbar, footer } from "../components/navbar.js";
+import { notifySuccess, notifyWarning } from "./app-dialogs.js";
 let navbarContainer = document.getElementById("navbar");
 let footerContainer = document.getElementById("footer");
 
@@ -118,21 +119,21 @@ let product_details =
   JSON.parse(localStorage.getItem("productDetails")) || null;
 appendProductDetails(product_details);
 
-//find product available or not
-let cart_item = JSON.parse(localStorage.getItem("cart_item")) || null;
-
-let findProductId = (id) => {
-  if (!cart_item) return;
-  cart_item.filter = (element) => {
-    if (element.id == id) return element;
-  };
-};
+// Stable key: API uses Mongo `_id`; older code compared `id` only, so two products
+// both missing `id` matched as the same line (undefined == undefined).
+function getProductKey(product) {
+  if (!product) return "";
+  if (product.id != null && product.id !== "") return `id:${String(product.id)}`;
+  if (product._id != null && product._id !== "")
+    return `id:${String(product._id)}`;
+  return `legacy:${product.head}|${product.image}`;
+}
 
 //add to cart function
 let addToCart = () => {
   if (!product_details) return;
   if (loginUser == null) {
-    alert("Login required");
+    void notifyWarning("Login required");
   } else {
     //check user is exits retun his data - arr[obj]
     let userIndex = null;
@@ -143,15 +144,15 @@ let addToCart = () => {
       }
     });
 
+    const newProductKey = getProductKey(product_details);
+
     // if user cart is exists check his array
     if (res.length !== 0) {
       let cartArray = res[0].cartItems;
 
       // checking this product is present or not
-      let element = cartArray.filter((ele, index) => {
-        if (ele.id == product_details.id) {
-          return ele;
-        }
+      let element = cartArray.filter((ele) => {
+        return getProductKey(ele) === newProductKey;
       });
 
       // if id match catch the cart-item for increasing count
@@ -167,31 +168,28 @@ let addToCart = () => {
         localStorage.setItem("cart_items", JSON.stringify(cart_items));
         displayCartCount();
 
-        alert("product added to the cart");
+        void notifySuccess("product added to the cart");
       } else {
-        // else puting the item with count = button counter
-        product_details.count = +document.getElementById("count-num").innerText;
-        cartArray.push(product_details);
+        // else puting the item with count = button counter (clone so cart lines are distinct snapshots)
+        const qty = +document.getElementById("count-num").innerText;
+        cartArray.push({ ...product_details, count: qty });
 
         let obj = {
           email: loginUser.email,
           cartItems: cartArray,
         };
 
-        let newArray = [];
-        newArray.push(obj);
-
-        localStorage.setItem("cart_items", JSON.stringify(newArray));
+        cart_items[userIndex] = obj;
+        localStorage.setItem("cart_items", JSON.stringify(cart_items));
         displayCartCount();
-        alert("product added to the cart");
+        void notifySuccess("product added to the cart");
       }
 
       // if user new/first time in cart/aftre a order wants to order more
     } else if (res.length == 0) {
       let count_input = +document.getElementById("count-num").innerText;
-      product_details.count = count_input;
       let newArray = [];
-      newArray.push(product_details);
+      newArray.push({ ...product_details, count: count_input });
 
       let obj = {
         email: loginUser.email,
@@ -200,7 +198,7 @@ let addToCart = () => {
       cart_items.push(obj);
       localStorage.setItem("cart_items", JSON.stringify(cart_items));
       displayCartCount();
-      alert("product added to the cart");
+      void notifySuccess("product added to the cart");
     }
   }
 };
@@ -230,7 +228,7 @@ document.getElementById("buy-it-now").addEventListener("click", () => {
     if (x.length > 0) flag = true;
   }
   if (flag) window.location.href = "checkout.html";
-  else alert("Please select a cart item");
+  else void notifyWarning("Please select a cart item");
 });
 
 var btn = $("#button");

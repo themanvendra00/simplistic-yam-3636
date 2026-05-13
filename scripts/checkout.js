@@ -1,3 +1,5 @@
+import { notifyError, notifySuccess, notifyWarning } from "./app-dialogs.js";
+
 let subTotal = 0;
 let subTotalWithoutDiscount = 0;
 
@@ -122,7 +124,7 @@ document.querySelector("#apply-btn").addEventListener("click", (e) => {
   let checkCupon = localStorage.getItem("cuponApply");
 
   if (checkCupon) {
-    alert("Cupon already applied");
+    void notifyWarning("Cupon already applied");
   } else if (cuponVal.value == "masai-30" || cuponVal.value == "lovoda-2022") {
     if (cuponVal.value == "masai-30") {
       discountSubTotal = Number((subTotal * 0.7).toFixed(2));
@@ -140,7 +142,7 @@ document.querySelector("#apply-btn").addEventListener("click", (e) => {
     displayDiscountAmount();
     sheckStatus();
   } else {
-    alert("Please enter valid cupon code");
+    void notifyWarning("Please enter valid cupon code");
   }
 });
 
@@ -161,7 +163,7 @@ coupon_input.addEventListener("input", (e) => {
 let form = document.querySelector("form");
 let orders = JSON.parse(localStorage.getItem("orders")) || [];
 
-let checkoutFunction = (event) => {
+let checkoutFunction = async (event) => {
   event.preventDefault();
 
   let elements = cart_items.filter((ele, index) => {
@@ -175,7 +177,7 @@ let checkoutFunction = (event) => {
     if (x.length > 0) flag = true;
   }
   if (flag == false) {
-    alert("Please select a cart item first");
+    await notifyWarning("Please select a cart item first");
     return;
   }
 
@@ -191,21 +193,21 @@ let checkoutFunction = (event) => {
   let zipcode = form.zipcode.value;
 
   if (email_mobile == "") {
-    alert("Please enter a email or mobile number");
+    await notifyWarning("Please enter a email or mobile number");
   } else if (country == "") {
-    alert("Please select a country");
+    await notifyWarning("Please select a country");
   } else if (firstname == "") {
-    alert("Please enter first name");
+    await notifyWarning("Please enter first name");
   } else if (lastname == "") {
-    alert("Please enter last name");
+    await notifyWarning("Please enter last name");
   } else if (address == "") {
-    alert("Please enter address");
+    await notifyWarning("Please enter address");
   } else if (city == "") {
-    alert("Please enter city");
+    await notifyWarning("Please enter city");
   } else if (state == "") {
-    alert("Please select state");
+    await notifyWarning("Please select state");
   } else if (zipcode == "") {
-    alert("Please enter zipcode");
+    await notifyWarning("Please enter zipcode");
   } else {
     let flag = false;
     while (true) {
@@ -238,10 +240,12 @@ let checkoutFunction = (event) => {
         localStorage.removeItem("discountAmount");
         localStorage.removeItem("cuponApply");
         localStorage.removeItem("discountSubTotal");
-        alert("Congratulations! your orders will be sent to your address");
+        await notifySuccess(
+          "Congratulations! your orders will be sent to your address"
+        );
         flag = true;
       } else {
-        alert("Wrong OTP!");
+        await notifyError("Wrong OTP!");
         flag = false;
       }
       if (flag == false) continue;
@@ -252,4 +256,6 @@ let checkoutFunction = (event) => {
     }
   }
 };
-form.addEventListener("submit", checkoutFunction);
+form.addEventListener("submit", (e) => {
+  void checkoutFunction(e);
+});

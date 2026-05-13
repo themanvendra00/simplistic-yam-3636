@@ -1,5 +1,6 @@
 import { navbar, footer } from "../components/navbar.js";
 import { Base_Url } from "./config.js";
+import { notifyError, notifyWarning } from "./app-dialogs.js";
 
 let navbarContainer = document.getElementById("navbar");
 let footerContainer = document.getElementById("footer");
@@ -139,12 +140,12 @@ loginForm?.addEventListener("submit", async (e) => {
   let password = document.querySelector("#password")?.value;
 
   if (!email) {
-    alert("Please enter a email");
+    await notifyWarning("Please enter a email");
     return;
   }
 
   if (!password) {
-    alert("Please enter a password");
+    await notifyWarning("Please enter a password");
     return;
   }
 
@@ -166,13 +167,13 @@ loginForm?.addEventListener("submit", async (e) => {
 
     if (!res.ok) {
       const msg = payload?.message ?? payload?.error ?? "Login failed!";
-      alert(msg);
+      await notifyError(msg);
       return;
     }
 
     const token = extractToken(payload);
     if (!token) {
-      alert("Login successful but auth token was not returned.");
+      await notifyWarning("Login successful but auth token was not returned.");
       return;
     }
 
@@ -184,6 +185,6 @@ loginForm?.addEventListener("submit", async (e) => {
     window.location.href = "index.html";
   } catch (err) {
     console.error(err);
-    alert("Something went wrong while logging in.");
+    await notifyError("Something went wrong while logging in.");
   }
 });

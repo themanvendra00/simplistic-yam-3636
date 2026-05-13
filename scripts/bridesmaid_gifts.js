@@ -1,6 +1,7 @@
 import { navbar, footer } from "../components/navbar.js";
 import sorting from "../components/category-filter.js";
 import appendData from "../components/append.js";
+import { notifyError } from "./app-dialogs.js";
 
 document.getElementById("navbar").innerHTML = navbar();
 document.getElementById("footer").innerHTML = footer();
@@ -77,7 +78,7 @@ let shopAllProducts = async () => {
         appendData(x, "bridesmaid gifts");
       });
     })
-    .catch((err) => alert(err));
+    .catch((err) => notifyError(err instanceof Error ? err.message : String(err)));
 };
 
 // display total products count

@@ -1,17 +1,19 @@
 // get function
-let url = "http://localhost:3000/products";
+import { Base_Url } from "./config.js";
+import { notifyError } from "./app-dialogs.js";
+const PRODUCTS_URL = `${Base_Url}/products`;
 
 async function getData() {
   try {
-    let res = await fetch(url, {
+    const res = await fetch(PRODUCTS_URL, {
       headers: {
         "content-type": "application/json",
       },
     });
-    let out = await res.json();
+    const out = await res.json();
     displayData(out);
   } catch (error) {
-    alert(error);
+    notifyError(error instanceof Error ? error.message : String(error));
   }
 }
 
@@ -61,20 +63,20 @@ function reload() {
 }
 
 //delete product
-function deleteusers() {
+async function deleteusers() {
   let id = JSON.parse(localStorage.getItem("local_Key"));
-  let URl = url + "/delete/" + id[0]._id;
-  console.log(URl);
+  const deleteUrl = `${PRODUCTS_URL}/delete/${id[0]._id}`;
+  console.log(deleteUrl);
 
   try {
-    let response = fetch(`${url}/delete/${id[0]._id}`, {
+    const response = await fetch(deleteUrl, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
       },
     });
 
-    if (response.ok == true) {
+    if (response.ok) {
       getData();
     }
   } catch (err) {
@@ -109,7 +111,7 @@ function create(event) {
     availability,
   };
 
-  fetch("http://localhost:3000/products/create", {
+  fetch(`${Base_Url}/products/create`, {
     method: "POST",
     body: JSON.stringify(obj),
     headers: {

@@ -1,4 +1,5 @@
 import { navbar, footer } from "../components/navbar.js";
+import { notifyWarning } from "./app-dialogs.js";
 let navbarContainer = document.getElementById("navbar");
 let footerContainer = document.getElementById("footer");
 
@@ -176,10 +177,10 @@ let appendFunction = (data) => {
         email: loginUser.email,
         cartItems: array,
       };
-      let newArray = [];
-      newArray.push(obj);
-
-      localStorage.setItem("cart_items", JSON.stringify(newArray));
+      if (userIndex != null) {
+        cart_items[userIndex] = obj;
+        localStorage.setItem("cart_items", JSON.stringify(cart_items));
+      }
       displayCartCount();
       displayTotalPrice();
       window.location.reload();
@@ -209,13 +210,13 @@ let appendFunction = (data) => {
 
       //store updated data to LS
       element.count = qty;
-      cart_items.splice(userIndex, 1);
-      let obj = {
-        email: loginUser.email,
-        cartItems: array,
-      };
-      cart_items.push(obj);
-      localStorage.setItem("cart_items", JSON.stringify(cart_items));
+      if (userIndex != null) {
+        cart_items[userIndex] = {
+          email: loginUser.email,
+          cartItems: array,
+        };
+        localStorage.setItem("cart_items", JSON.stringify(cart_items));
+      }
       displayCartCount();
       displayTotalPrice();
     });
@@ -232,13 +233,13 @@ let appendFunction = (data) => {
 
         // store updated data to LS
         element.count = qty;
-        cart_items.splice(userIndex, 1);
-        let obj = {
-          email: loginUser.email,
-          cartItems: array,
-        };
-        cart_items.push(obj);
-        localStorage.setItem("cart_items", JSON.stringify(cart_items));
+        if (userIndex != null) {
+          cart_items[userIndex] = {
+            email: loginUser.email,
+            cartItems: array,
+          };
+          localStorage.setItem("cart_items", JSON.stringify(cart_items));
+        }
         displayCartCount();
         displayTotalPrice();
       }
@@ -266,5 +267,5 @@ document.getElementById("checkout").addEventListener("click", () => {
     if (x.length > 0) flag = true;
   }
   if (flag) window.location.href = "checkout.html";
-  else alert("Please select a cart item");
+  else void notifyWarning("Please select a cart item");
 });

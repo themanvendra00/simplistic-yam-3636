@@ -203,6 +203,7 @@ input[type="checkbox"] {
 
 .card {
   overflow: hidden;
+  position: relative;
 }
 
 .img-box {
@@ -237,6 +238,27 @@ input[type="checkbox"] {
 
 .card button:hover {
   cursor: pointer;
+}
+
+.card button.card-add-to-cart {
+  position: static;
+  display: block;
+  width: calc(100% - 40px);
+  max-width: 100%;
+  height: auto;
+  min-height: 40px;
+  margin: 0 20px 16px;
+  border-radius: 0;
+  border: 1px solid #121212;
+  background-color: transparent;
+  font-size: 14px;
+  font-weight: 500;
+  color: #121212;
+  z-index: 2;
+}
+
+.card button.card-add-to-cart:hover {
+  outline: 2px solid #121212;
 }
 
 .fa-heart-o {
